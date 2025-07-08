@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CountDown Timer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/x-icon" href="img/icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .blink {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-cover bg-center h-screen transition-colors duration-500" style="background-image: url(img/nature.jpg)">
+  <div class="w-full h-full bg-black bg-opacity-70 flex flex-col items-center justify-center px-4" id="main-container">
+    <h1 class="text-white text-4xl font-semibold mb-4">New Batches Coming Soon</h1>
+
+    <div class="flex flex-col sm:flex-row gap-4 text-white mb-6">
+      <div class="flex flex-col items-center">
+        <label class="mb-1">Start Date</label>
+        <input id="start-input" type="datetime-local" class="rounded px-3 py-2 text-black">
+      </div>
+      <div class="flex flex-col items-center">
+        <label class="mb-1">End Date</label>
+        <input id="end-input" type="datetime-local" class="rounded px-3 py-2 text-black">
+      </div>
+      <button id="start-btn" class="bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2 self-end">Start
+        Countdown</button>
+    </div>
+
+    <div class="flex items-center justify-center gap-4 mb-6" id="live-indicator" style="display: none;">
+      <div class="w-5 h-5 rounded-full bg-red-600" id="blinker"></div>
+      <span class="text-white">Live</span>
+    </div>
+
+    <div id="countdown-container" class="flex gap-6 text-center text-white text-xl font-semibold">
+      <div class="flex flex-col items-center">
+        <input type="text" readonly value="0" class="w-20 p-2 rounded text-black text-center">
+        <div>Days</div>
+      </div>
+      <div class="flex flex-col items-center">
+        <input type="text" readonly value="0" class="w-20 p-2 rounded text-black text-center">
+        <div>Hrs</div>
+      </div>
+      <div class="flex flex-col items-center">
+        <input type="text" readonly value="0" class="w-20 p-2 rounded text-black text-center">
+        <div>Mins</div>
+      </div>
+      <div class="flex flex-col items-center">
+        <input type="text" readonly value="0" class="w-20 p-2 rounded text-black text-center">
+        <div>Secs</div>
+      </div>
+    </div>
+
+    <div id="message" class="text-red-400 text-2xl mt-6 hidden">Your session has ended. Try again.</div>
+  </div>
+
+  <script src="index.js">
+
+  </script>
+</body>
+
+</html>
